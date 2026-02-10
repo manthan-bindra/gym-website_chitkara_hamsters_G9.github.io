@@ -450,6 +450,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
 
+<script src="js/wow.min.js"></script>
+<script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       0,
+      }
+    );
+    wow.init();
+  </script>
+	<audio id="bgAudio">
+    <source src="1.mp3" type="audio/mpeg">
+</audio>
+
 <script>
     const overlay = document.getElementById('music-overlay');
     const enterBtn = document.getElementById('enter-btn');
@@ -465,14 +479,12 @@
 
         // 2. Hide the overlay
         overlay.style.display = 'none';
-
-        // 3. Initialize WOW.js ONLY after the overlay is hidden
-        // This ensures animations start when the user actually sees the site
-        new WOW().init(); 
     });
+</script>
 </script>
 </body>
 </html>
+
 
 
 
