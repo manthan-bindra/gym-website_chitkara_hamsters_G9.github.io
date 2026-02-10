@@ -13,6 +13,11 @@
   
 </head>
 <body>
+	<div id="music-overlay">
+    <h1>WELCOME TO THE GYM</h1>
+    <p>Get ready to train.</p>
+    <button id="enter-btn">Enter Site</button>
+</div>
  
  <!-- Start Header  -->
  <header>
@@ -457,20 +462,27 @@
 </audio>
 
 <script>
+    const overlay = document.getElementById('music-overlay');
+    const enterBtn = document.getElementById('enter-btn');
     const audio = document.getElementById('bgAudio');
 
-    // This handles the browser block
-    document.body.addEventListener('click', function() {
-        console.log("Attempting to play audio...");
-        audio.play()
-            .then(() => console.log("Success! Audio is playing."))
-            .catch(error => console.log("Playback failed: ", error));
-    }, { once: true });
+    enterBtn.addEventListener('click', function() {
+        // 1. Play the audio
+        audio.play().then(() => {
+            console.log("Music started!");
+        }).catch(err => {
+            console.log("Playback error:", err);
+        });
+
+        // 2. Hide the overlay
+        overlay.style.display = 'none';
+    });
 </script>
 	
 
 </body>
 </html>
+
 
 
 
