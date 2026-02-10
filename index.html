@@ -452,29 +452,26 @@
     );
     wow.init();
   </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script>
-  new WOW().init();
-	<audio id="bgAudio" src="1.mp3" loop>
-    Your browser does not support the audio element.
+	<audio id="bgAudio">
+    <source src="1.mp3" type="audio/mpeg">
 </audio>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
 <script>
-    new WOW().init();
+    const audio = document.getElementById('bgAudio');
 
-    // This part makes the audio play on the first click
-    window.addEventListener('click', function() {
-        const audio = document.getElementById('bgAudio');
-        audio.play();
+    // This handles the browser block
+    document.body.addEventListener('click', function() {
+        console.log("Attempting to play audio...");
+        audio.play()
+            .then(() => console.log("Success! Audio is playing."))
+            .catch(error => console.log("Playback failed: ", error));
     }, { once: true });
-</script>
 </script>
 	
 
 </body>
 </html>
+
 
 
 
